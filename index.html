@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Eduardo Fresco | Industrial Designer & Creative Tech</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- WIDGET DE CARPETAS -->
+    <div id="wrap">
+        <div id="desktop-icons">
+            <div class="folder" id="folder-proyectos">
+                <img src="./Assets/Icons/blank_folder_20512.webp" alt="Carpeta Proyectos" />
+                <span>Mis Proyectos</span>
+            </div>
+        </div>
+
+<!-- BARRA DE MENÚ SUPERIOR DE MAC -->
+        <div class="mac-menubar">
+            <div class="menubar-left">
+                <div class="apple-menu-container">
+                    <div class="apple-icon" id="apple-trigger">
+                        <img src="./Assets/Icons/malditosmiley_01.svg" alt="Logo" class="menu-brand-icon" />
+                    </div>
+
+                    <!-- Menú Desplegable -->
+                    <div class="apple-dropdown" id="apple-dropdown-menu">
+                        <div class="menu-item" id="menu-about">Acerca de este Mac</div>
+                        <div class="menu-separator"></div>
+                        <div class="menu-item" onclick="window.open('https://github.com', '_blank', 'noopener,noreferrer')">Preferencias del Sistema...</div>
+                        <div class="menu-item">App Store...</div>
+                        <div class="menu-separator"></div>
+                        <div class="menu-item" id="menu-reset">Reiniciar Escritorio</div>
+                        <div class="menu-item" id="menu-poweroff">Apagar Equipo</div>
+                    </div>
+                </div>
+                <span>Finder</span>
+                <span>Archivo</span>
+                <span>Edición</span>
+            </div>
+            <div class="menubar-right" id="mac-clock"></div>
+        </div>
+
+<!-- WIDGET DE GALERÍA (Ventana macOS Nativa) -->
+        <div class="post" id="window-gallery">
+            <div class="window-header" id="window-drag-zone">
+                <div class="window-buttons">
+                    <div class="win-btn btn-close" id="close-widget" title="Cerrar"></div>
+                    <div class="win-btn btn-minimize" id="minimize-widget" title="Minimizar"></div>
+                    <div class="win-btn btn-maximize" id="maximize-widget" title="Maximizar"></div>
+                </div>
+                <div class="window-title">Mis Proyectos</div>
+            </div>
+            
+            <div class="content-container" id="widget-body">
+                <h3>Mis Proyectos Recientes</h3>
+                <p>Selección de proyectos:</p>
+                
+                <!-- Contenedor Grid de la Galería -->
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="./Assets/Placeholders/251219_HulkGirl_10FINAL.jpg" alt="Proyecto A" />
+                        <span>Ilustración</span>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="./Assets/Placeholders/260429_Crimsonlike_TestD.jpg" alt="Proyecto B" />
+                        <span>3D Art</span>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="./Assets/Placeholders/AI02I SOLÍS EDUARDO_DemetraRenders-1@0,25x.png" alt="Proyecto C" />
+                        <span>3D Art</span>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="./Assets/Placeholders/VICELAND.jpg" alt="Proyecto D" />
+                        <span>3D Art</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+<!-- DOCK DE APLICACIONES PRINCIPAL -->
+        <div class="mac-dock-container">
+            <div class="mac-dock">
+                <div class="dock-item" data-title="Finder" id="dock-finder">
+                    <img src="./Assets/Icons/blank_folder_20512.webp" alt="Finder" />
+                </div>
+                <div class="dock-item" data-title="Mi CV">
+                    <a href="./Assets/documentos/CV INDUSTRIAL DESIGNER.pdf" target="_blank" rel="noopener noreferrer">
+                        <img src="./Assets/Icons/crumpled-white-paper-texture-mjl6w89sqmuyuft1.png" alt="My_CV" />
+                    </a>
+                </div>
+                <div class="dock-item" data-title="ArtStation" onclick="window.open('https://artstation.com', '_blank', 'noopener,noreferrer')">
+                    <img src="./Assets/Icons/1st.png" alt="ArtStation" />
+                </div>
+                <div class="dock-item" data-title="Instagram" onclick="window.open('https://instagram.com', '_blank', 'noopener,noreferrer')">
+                    <img src="./Assets/Icons/Instagram_Icon_Large.png" alt="Instagram" />
+                </div>
+                <div class="dock-separator"></div>
+                <div class="dock-item" data-title="Papelera">
+                    <img src="./Assets/Icons/IMG_2193_InPixio.png" alt="Trash" />
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+<!-- 1. Estructura de la Pantalla de Carga Estilo Mac -->
+<div id="mac-loader-screen">
+  
+    <!-- Botón de Encendido Inicial -->
+    <button id="mac-power-btn" aria-label="Encender">
+      <svg viewBox="0 0 24 24">
+        <path d="M12 2v10M18.36 5.64a9 9 0 1 1-12.73 0" />
+      </svg>
+    </button>
+  
+    <!-- Contenedor del Loader (Oculto al inicio) -->
+    <div class="mac-loader-container" id="mac-loader-content">
+      <!-- Tu logo como imagen -->
+      <img class="mac-logo" src="./Assets/Icons/1st.png" alt="Logo">
+      
+      <!-- Barra de progreso -->
+      <div class="mac-progress-bar">
+        <div class="mac-progress-fill" id="mac-progress-fill"></div>
+      </div>
+    </div>
+  </div>
+  
+  <style>
+  /* 2. Estilos Aislados */
+  #mac-loader-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000000;
+    z-index: 999999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.6s ease;
+  }
+  
+  /* Botón de encendido minimalista estilo Apple */
+  #mac-power-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 20px;
+    transition: transform 0.2s ease, opacity 0.3s ease;
+  }
+  
+  #mac-power-btn:hover {
+    transform: scale(1.1);
+  }
+  
+  #mac-power-btn svg {
+    width: 60px;
+    height: 60px;
+    stroke: #555555; /* Color gris apagado inicial */
+    stroke-width: 2;
+    stroke-linecap: round;
+    fill: none;
+    transition: stroke 0.3s ease;
+  }
+  
+  #mac-power-btn:hover svg {
+    stroke: #ffffff; /* Se ilumina al pasar el mouse */
+  }
+  
+  /* Contenedor del contenido (Logo + Barra) */
+  .mac-loader-container {
+    display: none; /* Escondido hasta que se pulse el botón */
+    flex-direction: column;
+    align-items: center;
+    width: 150px;
+  }
+  
+  .mac-logo {
+    width: 120px;
+    height: auto;
+    display: block;
+    margin-bottom: 45px;
+  }
+  
+  .mac-progress-bar {
+    width: 100%;
+    height: 4px;
+    background-color: #424242;
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  
+  .mac-progress-fill {
+    width: 0%;
+    height: 100%;
+    background-color: #ffffff;
+    transition: width 0.05s linear;
+  }
+  
+  /* Clases de animación */
+  #mac-loader-screen.fade-out {
+    opacity: 0;
+    pointer-events: none;
+  }
+  </style>
+  
+  <script>
+  // 3. Lógica de Activación por Botón y Carga Fija
+  document.addEventListener("DOMContentLoaded", () => {
+    const powerBtn = document.getElementById("mac-power-btn");
+    const loaderContent = document.getElementById("mac-loader-content");
+    const progressFill = document.getElementById("mac-progress-fill");
+    const loaderScreen = document.getElementById("mac-loader-screen");
+    
+    // Configuración de tu sonido de arranque
+    const sonidoArranque = new Audio("./Audio/freskOS.mp3");
+    sonidoArranque.volume = 0.6;
+  
+    powerBtn.addEventListener("click", () => {
+      // 1. Desvanecer botón y reproducir sonido con permiso garantizado
+      powerBtn.style.opacity = "0";
+      setTimeout(() => powerBtn.style.display = "none", 300);
+      
+      sonidoArranque.play().catch(e => console.log("Error de audio:", e));
+  
+      // 2. Mostrar logo y barra de carga
+      setTimeout(() => {
+        loaderContent.style.display = "flex";
+        iniciarAnimacionCarga();
+      }, 400);
+    });
+  
+    function iniciarAnimacionCarga() {
+      const DURACION_TOTAL = 5000; 
+      const INTERVALO_TIEMPO = 50; 
+      let tiempoTranscurrido = 0;
+  
+      const simuladorCarga = setInterval(() => {
+        tiempoTranscurrido += INTERVALO_TIEMPO;
+        let progreso = (tiempoTranscurrido / DURACION_TOTAL) * 100;
+  
+        // Ritmo asincrónico estilo Mac
+        let progresoVisual = progreso;
+        if (progreso > 25 && progreso < 50) {
+          progresoVisual = progreso * 0.75; 
+        } else if (progreso >= 50 && progreso < 80) {
+          progresoVisual = progreso * 0.93; 
+        } else if (progreso >= 80 && progreso < 99) {
+          progresoVisual = progreso * 0.97; 
+        }
+  
+        if (progresoVisual >= 99) {
+          progresoVisual = 99;
+        }
+  
+        progressFill.style.width = `${progresoVisual}%`;
+  
+        if (tiempoTranscurrido >= DURACION_TOTAL) {
+          clearInterval(simuladorCarga);
+          progressFill.style.width = "100%"; 
+          
+          setTimeout(() => {
+            loaderScreen.classList.add("fade-out");
+          }, 400);
+        }
+      }, INTERVALO_TIEMPO);
+    }
+  });
+  </script>
+  
+    
+    
+  
+</html>

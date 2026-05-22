@@ -1,0 +1,293 @@
+/* --- ESTILOS BASE DEL ESCRITORIO --- */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: #ffffff;
+    background-image: url('./Assets/Wallpapers/260220_tadpolelike_Render.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+    user-select: none;
+}
+
+#wrap {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    box-sizing: border-box;
+}
+
+/* --- BARRA DE MENÚ SUPERIOR DE MAC --- */
+.mac-menubar {
+    width: 100%;
+    height: 24px;
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 15px;
+    box-sizing: border-box;
+    font-size: 13px;
+    color: #222;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.15);
+}
+
+.menubar-left { display: flex; gap: 15px; font-weight: 600; }
+.apple-icon { font-weight: bold; cursor: pointer; }
+
+/* --- ICONOS DEL ESCRITORIO --- */
+#desktop-icons {
+    position: absolute;
+    top: 44px; 
+    right: 20px; 
+    z-index: 10;
+    width: 80px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.folder {
+    text-align: center;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 4px;
+    width: 75px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    transition: background-color 0.15s ease;
+}
+
+.folder span {
+    color: #FFF;
+    font-size: 11px;
+    font-weight: 500;
+    display: block;
+    text-shadow: 0px 1px 8px rgba(0, 0, 0, 0.9);
+    word-wrap: break-word;
+    margin-top: 4px;
+}
+
+.folder img {
+    width: 45px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    filter: drop-shadow(0px 4px 6px rgba(0,0,0,0.3));
+}
+
+.folder:hover { background-color: rgba(0, 120, 215, 0.4); }
+
+/* --- WIDGET DE LA VENTANA --- */
+.post {
+    display: none;
+    position: absolute;
+    top: 80px;
+    left: 50px;
+    width: 520px;
+    max-width: 90vw;
+    background-color: #f6f6f6;
+    border: 1px solid #a8a8a8;
+    border-radius: 6px;
+    box-shadow: 0px 20px 50px rgba(0,0,0,0.4);
+    z-index: 500;
+    overflow: hidden;
+}
+
+.window-header {
+    height: 24px;
+    background: linear-gradient(to bottom, #ebebeb, #d5d5d5);
+    border-bottom: 1px solid #b7b7b7;
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding: 0 10px;
+    cursor: grab;
+}
+.window-header:active { cursor: grabbing; }
+
+.window-buttons { display: flex; gap: 8px; position: absolute; left: 10px; }
+.win-btn { width: 12px; height: 12px; border-radius: 50%; cursor: pointer; }
+.btn-close { background-color: #ff5f56; border: 1px solid #e0443e; }
+.btn-minimize { background-color: #ffbd2e; border: 1px solid #dea123; }
+.btn-maximize { background-color: #27c93f; border: 1px solid #1aab29; }
+
+.window-title { width: 100%; text-align: center; font-size: 13px; color: #4a4a4a; }
+
+.content-container {
+    padding: 18px;
+    background-color: #ffffff;
+    max-height: 70vh;
+    overflow-y: auto;
+}
+
+.content-container h3 { margin: 0 0 5px 0; font-size: 16px; color: #222; }
+.content-container p { margin: 0 0 15px 0; font-size: 12px; color: #666; }
+
+/* --- GRID DE LA GALERÍA --- */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.gallery-item {
+    background: #fdfdfd;
+    border: 1px solid #e5e5e5;
+    border-radius: 4px;
+    padding: 6px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 3px;
+    display: block;
+}
+
+.gallery-item span {
+    font-size: 11px;
+    color: #444;
+    display: block;
+    margin-top: 5px;
+    font-weight: 500;
+}
+
+/* --- DOCK DE APLICACIONES --- */
+.mac-dock-container {
+    width: 100%;
+    position: fixed;
+    bottom: 10px;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    z-index: 9999;
+    pointer-events: none;
+}
+
+.mac-dock {
+    background: rgba(230, 230, 230, 0.4);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    padding: 6px 14px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3);
+    pointer-events: auto;
+}
+
+.dock-item { width: 48px; height: 48px; cursor: pointer; position: relative; display: flex; align-items: center; justify-content: center; }
+.dock-item a { display: flex; width: 100%; height: 100%; align-items: center; justify-content: center; }
+.dock-item img { width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(0px 4px 5px rgba(0,0,0,0.25)); transition: transform 0.2s ease; }
+.dock-item:hover img { transform: scale(1.25) translateY(-5px); }
+
+.dock-item::before {
+    content: attr(data-title);
+    position: absolute;
+    bottom: 65px;
+    left: 50%;
+    transform: translateX(-50%) scale(0.8);
+    background: rgba(240, 240, 240, 0.95);
+    color: #222222;
+    padding: 4px 11px;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: 500;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.15);
+    transition: opacity 0.15s ease, transform 0.15s ease;
+}
+.dock-item:hover::before { opacity: 1; transform: translateX(-50%) scale(1); }
+.dock-separator { width: 1px; height: 40px; background-color: rgba(0, 0, 0, 0.2); flex-shrink: 0; }
+
+.menubar-right {
+    font-weight: 500;
+    color: #222;
+    padding-right: 5px;
+}
+
+/* --- MENÚ APPLE --- */
+.apple-menu-container {
+    position: relative;
+    display: inline-block;
+}
+
+.apple-icon {
+    cursor: pointer;
+    padding: 0 6px;
+    border-radius: 4px;
+    transition: background-color 0.15s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.apple-icon.active-menu, .apple-icon:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.menu-brand-icon {
+    width: 14px;
+    height: 14px;
+    object-fit: contain;
+    display: block;
+}
+
+.apple-dropdown {
+    display: none;
+    position: absolute;
+    top: 24px;
+    left: 0;
+    width: 200px;
+    background: rgba(246, 246, 246, 0.96);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 0 0 6px 6px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.15);
+    z-index: 20000;
+    padding: 5px 0;
+    box-sizing: border-box;
+}
+
+.apple-dropdown .menu-item {
+    padding: 4px 18px;
+    color: #222;
+    font-size: 13px;
+    font-weight: 400;
+    cursor: pointer;
+    text-align: left;
+}
+
+.apple-dropdown .menu-item:hover {
+    background-color: #0078d7;
+    color: #ffffff;
+}
+
+.apple-dropdown .menu-separator {
+    height: 1px;
+    background-color: rgba(0, 0, 0, 0.1);
+    margin: 5px 10px;
+}
+
+/* =========================================================== */
